@@ -24,30 +24,36 @@
 
 <div class="buttons">
   <% [5, 10, 20, 30, 40, 50, 60].each do |e| %>
-    <%= button_to "-#{pluralize e, 'second'}", { action: :set_datetime, seconds: e.seconds.to_i }, { class: "button is-light" } %>
+    <%= button_to "-#{pluralize e, 'second'}", { action: :set_datetime, type: "seconds", value: e.seconds.to_i }, { class: "button is-light" } %>
   <% end %>
 </div>
 
 <div class="buttons">
   <% [1, 2, 5, 10, 20, 30, 50, 60, 100].each do |e| %>
-    <%= button_to "-#{pluralize e, 'minute'}", { action: :set_datetime, seconds: e.minutes.to_i }, { class: "button is-info" } %>
+    <%= button_to "-#{pluralize e, 'minute'}", { action: :set_datetime, type: "seconds", value: e.minutes.to_i }, { class: "button is-info" } %>
   <% end %>
 </div>
 
 <div class="buttons">
   <% [1, 2, 5, 10, 20, 30, 50, 100, 365].each do |e| %>
-    <%= button_to "-#{pluralize e, 'day'}", { action: :set_datetime, seconds: e.days.to_i }, { class: "button is-success" } %>
+    <%= button_to "-#{pluralize e, 'day'}", { action: :set_datetime, type: "seconds", value: e.days.to_i }, { class: "button is-success" } %>
+  <% end %>
+</div>
+
+<div class="buttons">
+  <% [1, 2, 3, 4, 5].each do |e| %>
+    <%= button_to "-#{pluralize e, 'month'}", { action: :set_datetime, type: "months", value: e }, { class: "button is-primary" } %>
   <% end %>
 </div>
 
 <div class="buttons">
   <% [1, 2, 3, 5].each do |e| %>
-    <%= button_to "-#{pluralize e, 'year'}", { action: :set_datetime, seconds: e.year.to_i }, { class: "button is-warning" } %>
+    <%= button_to "-#{pluralize e, 'year'}", { action: :set_datetime, type: "seconds", value: e.year.to_i }, { class: "button is-warning" } %>
   <% end %>
 </div>
 
 <% if session[:timecop_date].present? %>
   <div class="buttons">
-    <%= button_to "reset time", { action: :set_datetime,  seconds: "reset" }, { class: 'button is-danger' } %>
+    <%= button_to "reset time", { action: :set_datetime,  type: "reset" }, { class: 'button is-danger' } %>
   </div>
 <% end %>
