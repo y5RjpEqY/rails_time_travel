@@ -11,3 +11,6 @@
 .byebug_history
 
 *.gem
+
+.rbenv-gemsets
+.ruby-version
